@@ -1,0 +1,13 @@
+<div class="overlay" *ngIf="winner">
+    <div class="winner-box">
+        <h1>
+            <ng-container *ngFor="let line of splitNameLines(); let i = index">
+                <ng-container *ngFor="let char of line">
+                    <span>{{ char }}</span>
+                </ng-container>
+                <br *ngIf="i < splitNameLines().length - 1" />
+            </ng-container>
+        </h1>
+        <button (click)="close()">👌🏼 Fermer</button>
+    </div>
+</div>

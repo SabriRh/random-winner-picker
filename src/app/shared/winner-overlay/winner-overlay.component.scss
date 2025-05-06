@@ -1,0 +1,99 @@
+@use "../../../assets/styles/theme1" as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.winner-box {
+  background: linear-gradient(135deg, #ff90b3 0%, #b892ff 100%);
+  padding: 3rem;
+  border-radius: 2rem;
+  min-width: 50vw;
+  text-align: center;
+  animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+
+  h1 {
+    color: #c21b17;
+    font-size: 3rem;
+    margin-bottom: 3.5rem;
+  }
+
+  button {
+    padding: 0.7rem 1.5rem;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    background: #c21b17;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      background: darken(#c21b17, 10%);
+    }
+  }
+}
+
+h1 {
+  cursor: default;
+  height: 100px;
+  margin: 0 auto 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    position: relative;
+    display: inline-block;
+    animation: float 1.5s ease-in-out infinite;
+    font-size: 80px;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
+      0 5px 0 #ccc, 0 6px 0 transparent, 0 7px 0 transparent,
+      0 8px 0 transparent, 0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, 0.4);
+    transform-origin: bottom center;
+  }
+
+  // Génère les délais dynamiquement pour 1 à 15 lettres
+  @for $i from 1 through 15 {
+    span:nth-child(#{$i}) {
+      animation-delay: #{($i - 1) * 0.1}s;
+    }
+  }
+}
+
+// Animations
+@keyframes pop-in {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
+      0 5px 0 #ccc, 0 6px 0 #ccc, 0 7px 0 #ccc, 0 8px 0 #ccc, 0 9px 0 #ccc,
+      0 30px 15px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+    text-shadow: 0 5px 0 #ccc, 0 10px 5px rgba(0, 0, 0, 0.2);
+  }
+}

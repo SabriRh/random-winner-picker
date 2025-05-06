@@ -1,0 +1,45 @@
+@use "../../../assets/styles/theme1" as *;
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, $secondary, $bg);
+  text-align: center;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    color: $primary;
+  }
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1100px;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  app-wheel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  app-participants-list {
+    flex: 1;
+    max-width: 450px;
+  }
+}

@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./assets/styles/theme1" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titan+One&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, $secondary, $bg);
+  font-family: $fun-font;
+  font-family: "Titan One", sans-serif;
+  color: $text;
+  * {
+    font-family: inherit;
+  }
+}
+
+button {
+  font-family: inherit;
+  font-family: "Titan One", sans-serif;
+}

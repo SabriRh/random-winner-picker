@@ -1,0 +1,12 @@
+<div class="page-wrapper">
+    <app-share-link></app-share-link>
+    <h1>🍀 C'est votre jour de chance ? 🍀</h1>
+
+    <div class="layout">
+        <app-participants-list [participants]="participants()" (participantsChange)="participantsChange($event)">
+        </app-participants-list>
+        <app-wheel [participants]="participants()" (spun)="onWinner($event)">
+        </app-wheel>
+    </div>
+</div>
+<app-winner-overlay [winner]="winner" (closed)="winner = null" />
